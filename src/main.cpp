@@ -9,18 +9,22 @@
 #include <RFM69.h>
 #include <RFM69_ATC.h>
 #include <RFM69_OTA.h>
-#include <SparkFun_Ublox_Arduino_Library.h>
+#include <Adafruit_SleepyDog.h>
 
 
-#define BME_SCK      13
-#define BME_MISO     12
-#define BME_MOSI     11
-#define BME_CS       10
+#define SCK          PB5
+#define MISO         PB4
+#define MOSI         PB3
+#define SS           PB2
 #define SEALEVELPRESSURE_HPA (1013.25)
 #define DELAYVAL     500     // Time (in milliseconds) to pause between pixels
-#define DHTPIN       5       // Digital pin connected to the DHT sensor
+#define DHTPIN       PD5       // Digital pin connected to the DHT sensor
 #define DHTTYPE      DHT11
-#define PHOTOSENSOR  A3
+#define PHOTOSENSOR  PC3
+#define BUZZER       PD3
+#define SEL0         PD4
+#define SEL1         PE0
+#define U5V_ENABLE   PC2
 
 #define NODEID           789
 #define NETWORKID        100
@@ -42,17 +46,23 @@
 Adafruit_INA219   ina219;
 Adafruit_BME280   bme; // I2C
 DHT               dht(DHTPIN, DHTTYPE);
-SFE_UBLOX_GPS     myGPS;
 
 
-int HighByte, LowByte, TReading, SignBit, Tc_100, Fh_100, Whole, Fract;
-char buff[61]; //max packet size is 61 with encryption enabled
-char Fstr[10];
-byte buffLen;
-float fahrenheit, celsius;
-uint32_t time=0, now=0, LASTPACKETTIME=-1;
-uint16_t conversionTime=0;
+uint16_t SPI_data = 0;
 
+ISR (SPI0_STC_vect)   //Inerrrput routine function
+{
+  SPI_data = SPDR;
+}
+
+void spi_init()
+{
+  pinMode(SS, INPUT_PULLUP);
+  pinMode(MOSI, OUTPUT);
+  pinMode(SCK, INPUT);
+  SPCR0 |= _BV(SPE);
+  SPI.attachInterrupt();  //allows SPI interrupt
+}
 
 bool radio_init()
 {
@@ -70,26 +80,21 @@ bool radio_init()
   return true;
 }
 
-bool GPS_init()
-{
-  if (myGPS.begin() == false) //Connect to the Ublox module using Wire port
-  {
-    Serial.println(F("Ublox GPS not detected at default I2C address. Please check wiring. Freezing."));
-    return false;
-  }
-
-  myGPS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
-  myGPS.saveConfiguration(); //Save the current settings to flash and BBR
-  return true;
-}
-
-
 
 void setup() 
 {
   Serial.begin(115200);
   Wire.begin();
-  
+  spi_init();
+  pinMode(SEL0, INPUT_PULLUP);
+  pinMode(SEL1, INPUT_PULLUP);
+  pinMode(PHOTOSENSOR, INPUT);
+
+  bme.init();
+  ina219.begin();
+  radio_init();
+
+  tone(BUZZER, 1000, 100);
 }
 
 void loop() 
