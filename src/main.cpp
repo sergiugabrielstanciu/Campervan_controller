@@ -95,11 +95,10 @@ void setup()
   radio_init();
 
   tone(BUZZER, 1000, 100);
-
-
-
-  
 }
+
+
+
 
 void loop() 
 {
