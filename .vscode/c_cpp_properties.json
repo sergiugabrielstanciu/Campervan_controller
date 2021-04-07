@@ -1,0 +1,64 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "c:/Users/Gabriel/Documents/GitHub/Campervan_controller/include",
+                "c:/Users/Gabriel/Documents/GitHub/Campervan_controller/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/cores/MiniCore",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/variants/standard",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/AVR_examples/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/EEPROM/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/Optiboot_flasher/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/SPI/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/SPI1/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/SoftwareSerial/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/Wire/src",
+                "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/Wire1/src",
+                "C:/Users/Gabriel/.platformio/packages/tool-unity",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "c:/Users/Gabriel/Documents/GitHub/Campervan_controller/include",
+                    "c:/Users/Gabriel/Documents/GitHub/Campervan_controller/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/cores/MiniCore",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/variants/standard",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/AVR_examples/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/EEPROM/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/Optiboot_flasher/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/SPI/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/SPI1/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/SoftwareSerial/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/Wire/src",
+                    "C:/Users/Gabriel/.platformio/packages/framework-arduino-avr-minicore/libraries/Wire1/src",
+                    "C:/Users/Gabriel/.platformio/packages/tool-unity",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50101",
+                "ARDUINO_AVR_ATmega328P",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "C:/Users/Gabriel/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
