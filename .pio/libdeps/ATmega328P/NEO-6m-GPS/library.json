@@ -1,0 +1,24 @@
+{
+    "authors": {
+        "name": "t k",
+        "url": "https://os.mbed.com/users/sampleCode/"
+    },
+    "description": "4 pins(vcc,gnd,tx,rx)",
+    "examples": [
+        "https://os.mbed.com/users/sampleCode/code/frdm_k64f_serialgps/",
+        "https://os.mbed.com/users/dev_alexander/code/Low_Power_Long_Distance_IR_Vision_Robot/"
+    ],
+    "frameworks": "mbed",
+    "keywords": [
+        "gps",
+        "k64f",
+        "serial"
+    ],
+    "name": "NEO-6m-GPS",
+    "platforms": "*",
+    "repository": {
+        "type": "hg",
+        "url": "https://os.mbed.com/users/sampleCode/code/NEO-6m-GPS/"
+    },
+    "version": "0.0.0-alpha+sha.7350eda5fa8c"
+}
