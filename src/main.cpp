@@ -1,4 +1,7 @@
 #include <Arduino.h>
+#include <SPI.h>
+#include <Wire.h>
+
 
 void setup() {
   // put your setup code here, to run once:
